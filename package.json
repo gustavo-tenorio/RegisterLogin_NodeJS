@@ -1,0 +1,27 @@
+{
+  "name": "registerlogin_nodejs",
+  "version": "1.0.0",
+  "description": "Sistema de cadastro e login com página de usuário.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gustavo-tenorio/RegisterLogin_NodeJS.git"
+  },
+  "author": "Gustavo Luis de Almeida Tenório",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gustavo-tenorio/RegisterLogin_NodeJS/issues"
+  },
+  "homepage": "https://github.com/gustavo-tenorio/RegisterLogin_NodeJS#readme",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.19.0",
+    "ejs": "^3.1.6",
+    "express": "^4.17.1",
+    "mysql2": "^2.2.5",
+    "nodemon": "^2.0.7",
+    "sequelize": "^6.6.2
