@@ -1,9 +1,12 @@
+//Express
 const express = require('express');
 const app = express();
 
+//View Engine
 app.set('view engine','ejs');
 app.use(express.static('public'));
 
+//Body-Parser
 const bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(bodyParser.json());
@@ -21,6 +24,14 @@ connection
             console.log(Error);
         });
 
+//Sessões
+const session = require('express-session');
+
+app.use(session({
+    secret:'asdmalsdasdoiejdkaslkdalksdjlkasjdjeas', cookie:{maxAge: 60000}
+}));
+
+
 //Rotas
 const usersController = require('./Users/UsersController');
 
@@ -29,6 +40,8 @@ app.get('/',(req,res)=>{
     res.render('index');
 });
 
+
+//Servidor
 app.listen('3000',()=>{
     console.log('Server ON');
 });

@@ -7,12 +7,12 @@
     </div>
     <div class="wrapper2">
         <i class="fa fa-arrow-left" onclick="backHomeLogin()"></i>
-        <form action="">
+        <form action="/authenticate" method="POST">
             <h1>Login</h1>
             <br>
             <label for="email">Email</label>
             <br>
-            <input type="email" placeholder="email@exemplo.com"  required>
+            <input type="email" placeholder="email@exemplo.com" name="email" required>
             <br>
             <label for="password">Senha</label>
             <br>
@@ -47,7 +47,8 @@
         </form>
 
     </div>
-
 </body>
 <script src="./js/functions.js"></script>
+
+
 </html>
