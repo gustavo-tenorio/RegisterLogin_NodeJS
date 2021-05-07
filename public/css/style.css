@@ -12,7 +12,7 @@ body,html{
     /*1.5em = 20px*/
 }
 p{font-size:18px;}h3{font-size:20px;}
-a{text-decoration: none;}button:focus,input:focus{outline:none;}
+a{text-decoration: none;color:white;}button:focus,input:focus{outline:none;}
 
 @media screen and (min-width:280px){
     .wrapper{

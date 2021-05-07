@@ -51,6 +51,11 @@ router.post('/authenticate',(req,res)=>{
         }
     });
 });
+//Logout
+router.get('/logout',(req,res)=>{
+    req.session.user = undefined;
+    res.redirect('/')
+})
 router.get('/user',(req,res)=>{
     let val = req.session.user;
     res.render('../views/User/user',{user:val});
