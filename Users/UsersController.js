@@ -22,9 +22,7 @@ router.post('/save',(req,res)=>{
                 name:name,
                 email:email,
                 password:hash
-            }).then(res.json({
-                name,email,hash
-            })).catch((Error)=>{
+            }).then(res.json(res.redirect('/'))).catch((Error)=>{
                 res.redirect('/');
             })
             
@@ -46,7 +44,7 @@ router.post('/authenticate',(req,res)=>{
                     name: user.name,
                     email: user.email
                 }
-                res.json(req.session.user);
+                res.redirect('/user');
             }else{
                 res.redirect('/');
             }
@@ -54,6 +52,10 @@ router.post('/authenticate',(req,res)=>{
     });
 });
 router.get('/user',(req,res)=>{
-    res.render('../views/User/user');
+    let val = req.session.user;
+    res.render('../views/User/user',{user:val});
 });
+router.get('/session',(req,res)=>{
+    res.json(req.session.user);
+})
 module.exports = router;

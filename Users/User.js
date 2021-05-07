@@ -13,7 +13,7 @@ const Users = connection.define('users',{
     password:{
         type:Sequelize.STRING,
         allowNull:false
-    }
+    },
 });
 
 Users.sync({force:false});

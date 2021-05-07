@@ -30,7 +30,10 @@ const session = require('express-session');
 app.use(session({
     secret:'asdmalsdasdoiejdkaslkdalksdjlkasjdjeas', cookie:{maxAge: 60000}
 }));
-
+app.use(function(req,res,next){
+    res.locals.user = req.session.user;
+    next();
+})
 
 //Rotas
 const usersController = require('./Users/UsersController');
