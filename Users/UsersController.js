@@ -53,4 +53,7 @@ router.post('/authenticate',(req,res)=>{
         }
     });
 });
+router.get('/user',(req,res)=>{
+    res.render('../views/User/user');
+});
 module.exports = router;
