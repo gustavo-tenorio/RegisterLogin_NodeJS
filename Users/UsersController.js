@@ -42,7 +42,8 @@ router.post('/authenticate',(req,res)=>{
             if(correct){
                 req.session.user ={
                     name: user.name,
-                    email: user.email
+                    email: user.email,
+                    id: user.id
                 }
                 res.redirect('/user');
             }else{
@@ -55,7 +56,32 @@ router.post('/authenticate',(req,res)=>{
 router.get('/logout',(req,res)=>{
     req.session.user = undefined;
     res.redirect('/')
-})
+});
+//Alterar dados de cadastro
+router.get('/user/edit/:id',(req,res)=>{
+    let id = req.params.id;
+    User.findByPk(id).then(user =>{
+        if(user != undefined){
+            res.render('../views/User/edit',{user:user});
+        }
+    });   
+});
+//Persistindo alteração de cadastro
+router.post('/edit/update',(req,res)=>{
+    let id = req.body.id;
+    let name = req.body.name;
+    let email = req.body.email;
+
+    User.update({
+        name:name,
+        email:email
+    },{where:{id:id}}).then(()=>{
+        req.session.user = undefined;
+        res.redirect('/');
+    }).catch(Error =>{
+        console.log(Error);
+    });
+});
 router.get('/user',(req,res)=>{
     let val = req.session.user;
     res.render('../views/User/user',{user:val});

@@ -7,10 +7,8 @@
             <hr>
             <h3>Email</h3>
             <p><%= user.email%></p>
-            <h3>Idade</h3>
-            <p>20</p>
             <div class="btn-user">
-                <button>Editar</button>
+                <button><a href="/user/edit/<%=user.id%>">Editar</a></button>
                 <button><a href="/logout">Sair</a></button>
             </div>
             
